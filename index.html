@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Guider And Road map maker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#fff7ed',   // Orange/Saffron theme
+                100: '#ffedd5',
+                200: '#fed7aa',
+                300: '#fdba74',
+                400: '#fb923c',
+                500: '#f97316',  // Primary Saffron
+                600: '#ea580c',  // Darker Saffron
+                700: '#c2410c',
+                800: '#9a3412',
+                900: '#7c2d12',
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fff7ed;
+        color: #000000;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      body.dark {
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Background Image Styling */
+      .bg-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Swaminarayan_Akshardham_New_Jersey.jpg/2560px-Swaminarayan_Akshardham_New_Jersey.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      
+      .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(2px);
+        transition: background-color 0.3s;
+      }
+
+      body.dark .bg-overlay {
+        background: rgba(0, 0, 0, 0.85);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #fb923c;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ea580c;
+      }
+
+      /* Better Table Styling for Markdown */
+      .prose table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+        border: 2px solid #000;
+      }
+      .prose th {
+        background-color: #ffedd5;
+        color: #000;
+        font-weight: 700;
+        text-align: left;
+        padding: 0.75rem;
+        border: 1px solid #000;
+      }
+      .prose td {
+        padding: 0.75rem;
+        border: 1px solid #000;
+        color: #000;
+      }
+      .prose tr:nth-child(even) {
+        background-color: #fff;
+      }
+
+      /* Dark mode overrides for Markdown tables inside preview (if we want preview to be dark, but usually paper is white) */
+      /* We will keep the preview area white/paper-like even in dark mode for realism, but UI elements will be dark */
+      
+      /* Ensure text is always black in prose */
+      .prose {
+        color: #000 !important;
+      }
+      .prose h1, .prose h2, .prose h3, .prose h4, .prose strong, .prose b {
+        color: #000 !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "remark-gfm": "https://esm.sh/remark-gfm@4.0.0",
+    "remark-math": "https://esm.sh/remark-math@6.0.0",
+    "rehype-katex": "https://esm.sh/rehype-katex@7.0.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="bg-image-container">
+      <div class="bg-overlay"></div>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>

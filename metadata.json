@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Question Solver",
+  "description": "Upload a PDF question bank and get comprehensive, AI-generated answers in a downloadable PDF format using Gemini 2.5 Flash and Pro models.",
+  "requestFramePermissions": []
+}
